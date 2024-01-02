@@ -14,11 +14,11 @@ export default function Home() {
   const navigate = useNavigate();
   
   const handleDateChange = (year: number, month: number) => {
-    setSelectedYear((prevYear) => {
+    setSelectedYear(() => {
       navigate(`/year/${year}/month/${month}`);
       return year;
     });
-    setSelectedMonth((prevMonth) => month);
+    setSelectedMonth(() => month);
 
     ///*****filter appointments */
     // Retrieve appointments from localStorage
