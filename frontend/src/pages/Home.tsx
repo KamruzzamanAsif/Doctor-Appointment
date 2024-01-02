@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 
+import Navbar from "../components/Navbar";
 import Calendar from "../components/Calender";
 import DetailsModal from "../components/DetailsModal";
 import AppointmentModal from "../components/AppointmentModal";
@@ -42,7 +43,7 @@ export default function Home() {
     navigate(`/year/${selectedYear}/month/${selectedMonth}`);
 
     // generate some random appointments
-    const randomAppointments = generateRandomData(1000);
+    const randomAppointments = generateRandomData(2000);
     localStorage.setItem("appointments", randomAppointments);
     console.log("appointments", localStorage.getItem("appointments"))
     handleDateChange(2021, 1);
@@ -226,12 +227,17 @@ export default function Home() {
 
   return (
     <>
+      <Navbar/>
       <div className="flex justify-between items-center p-4">
         <Calendar onDateChange={handleDateChange} />
 
-        <button onClick={openModal} className="bg-blue-500 text-white p-2">
-          Create Appointment
-        </button>
+        <button
+        onClick={openModal}
+        className="bg-blue-500 text-white py-3 px-6 rounded-full text-lg font-semibold hover:bg-blue-700 transition duration-300"
+      >
+        Create Appointment
+      </button>
+
 
         {/* Render the appointment modal */}
         {renderAppointmentModal()}
