@@ -137,7 +137,6 @@ export default function Home() {
     const appointments = [];
     const names = ["Alice", "Bob", "Charlie", "David", "Eva"];
     const genders = ["male", "female"];
-    const currentDate = new Date();
   
     for (let i = 0; i < count; i++) {
       const randomName = names[Math.floor(Math.random() * names.length)];
@@ -180,7 +179,7 @@ export default function Home() {
           );
   
           // Sort appointments for the current day by time
-          filteredAppointmentsForDay.sort((a, b) => {
+          filteredAppointmentsForDay.sort((a:any, b:any) => {
             const timeA = a.time.replace(":", "");
             const timeB = b.time.replace(":", "");
             return parseInt(timeA) - parseInt(timeB);
